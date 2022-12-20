@@ -1,14 +1,14 @@
-require("./models/User");
-require("./models/Track");
+require("./src/models/User");
+require("./src/models/Track");
 require('dotenv').config();
 const cors = require('cors');
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const authRoutes = require("./routes/authRoutes");
-const trackRoutes = require("./routes/trackRoutes");
-const requireAuth = require("./middlewares/requireAuth");
-const stationRoutes = require("./routes/stationRoutes");
+const authRoutes = require("./src/routes/authRoutes");
+const trackRoutes = require("./src/routes/trackRoutes");
+const requireAuth = require("./src/middlewares/requireAuth");
+const stationRoutes = require("./src/routes/stationRoutes");
 
 const app = express();
 
