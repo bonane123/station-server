@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
+const Station = require('../models/Station');
 const User = mongoose.model('User');
 
 const router = express.Router();
@@ -49,8 +50,12 @@ router.get('/users/count', async (req, res) => {
   } catch (error) {
      console.log(error);
      
-    
   }
+});
+router.get('/users/count/:id', async (req, res) => {
+  const {id} = req.params;
+  const stations = await Station.find({userId: id}).sort({ createdAt: -1 });
+  res.status(200).json(stations);
 });
 
 module.exports = router;
